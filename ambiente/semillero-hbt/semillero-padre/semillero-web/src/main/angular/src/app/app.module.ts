@@ -12,6 +12,8 @@ import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
 import { CrearPersonaComponent } from './semillero/componentes/crearPersona/crear-persona-component';
 import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
+import {showComponent} from './showdata/show-data-component';
+ 
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
