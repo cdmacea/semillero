@@ -12,7 +12,6 @@ import { MenuComponent } from './semillero/componentes/menu/menu-component';
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
 import { CrearPersonaComponent } from './semillero/componentes/crearPersona/crear-persona-component';
 import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
-import {showComponent} from './showdata/show-data-component';
  
 
 // DTOs
@@ -24,13 +23,15 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
 import {EjemploService} from './semillero/services/ejemplo.service';
 import {AbstractService} from './semillero/services/template.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    BienvenidaComponent,
+    
     CrearPersonaComponent,
-    GestionarComicComponent
+    GestionarComicComponent,
+ 
   ],
   imports: [
     BrowserModule,

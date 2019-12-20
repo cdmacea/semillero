@@ -14,8 +14,11 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.log4j.Logger;
+
 import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.entidad.Comic;
+import com.hbt.semillero.exceptions.ComicException;
 
 /**
  * <b>Descripción:<b> Clase que determina el bean para realizar las gestion de
@@ -27,6 +30,9 @@ import com.hbt.semillero.entidad.Comic;
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class GestionarComicBean implements IGestionarComicLocal {
+	
+	
+	private static final Logger logger=Logger.getLogger(GestionarPersonajeBean.class);
 
 	/**
 	 * Atributo em que se usa para interacturar con el contexto de persistencia.
@@ -67,12 +73,22 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	 * 
 	 * @see com.hbt.semillero.ejb.IGestionarComicLocal#eliminarComic(java.lang.Long)
 	 */
+	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void eliminarComic(Long idComic) {
-		Comic comicEliminar = em.find(Comic.class, idComic);
-		if (comicEliminar != null) {
-			em.remove(comicEliminar);
+	public void eliminarComic(Long idComic)throws ComicException {
+		try {
+			Comic comicEliminar = em.find(Comic.class, idComic);
+			if (comicEliminar != null) {
+				em.remove(comicEliminar);
+			}
+			
+		} catch (Exception e) {
+			logger.error("Error al eliminar comic"+e);
+			throw new ComicException("0001", "Error a eliminar comic", e);
+			// TODO: handle exception
 		}
+		
+		
 	}
 
 	/**
