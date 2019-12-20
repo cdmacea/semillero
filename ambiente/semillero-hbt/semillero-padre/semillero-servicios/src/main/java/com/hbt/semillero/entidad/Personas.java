@@ -5,6 +5,8 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,20 +48,17 @@ public class Personas implements Serializable {
 	@Column(name = "pers_fecha_nacimiento")
 	private String fecha_de_nacimiento;
 	
+	
+	@Column(name = "comp_estado")
+	@Enumerated(value = EnumType.STRING)
+	private EstadoEnum estado;
+	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "pers_id_comic")
 	private Comic id_comic;
 
 	public long getId() {
 		return id;
-	}
-
-	public String getFecha_de_nacimiento() {
-		return fecha_de_nacimiento;
-	}
-
-	public void setFecha_de_nacimiento(String fecha_de_nacimiento) {
-		this.fecha_de_nacimiento = fecha_de_nacimiento;
 	}
 
 	public void setId(long id) {
@@ -90,6 +89,22 @@ public class Personas implements Serializable {
 		this.documento = documento;
 	}
 
+	public String getFecha_de_nacimiento() {
+		return fecha_de_nacimiento;
+	}
+
+	public void setFecha_de_nacimiento(String fecha_de_nacimiento) {
+		this.fecha_de_nacimiento = fecha_de_nacimiento;
+	}
+
+	public EstadoEnum getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoEnum estado) {
+		this.estado = estado;
+	}
+
 	public Comic getId_comic() {
 		return id_comic;
 	}
@@ -97,7 +112,6 @@ public class Personas implements Serializable {
 	public void setId_comic(Comic id_comic) {
 		this.id_comic = id_comic;
 	}
-	
-	
 
+	
 }

@@ -22,15 +22,28 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
 
 import {EjemploService} from './semillero/services/ejemplo.service';
 import {AbstractService} from './semillero/services/template.service';
+import { MensajeComponent } from './semillero/componentes/mensaje/mensaje.component';
+import { RelacionComicPersonaComponent } from './semillero/componentes/relacion-comic-persona/relacion-comic-persona.component';
+import { ComprarComicComponent } from './semillero/componentes/comprar-comic/comprar-comic.component';
+import { ListaPersonasComponent } from './semillero/componentes/lista-personas/lista-personas.component';
+import { ListaComicsComponent } from './semillero/componentes/lista-comics/lista-comics.component';
+import { NuevaPersonaComponent } from './semillero/componentes/nueva-persona/nueva-persona.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    BienvenidaComponent,
     
     CrearPersonaComponent,
     GestionarComicComponent,
+    MensajeComponent,
+    RelacionComicPersonaComponent,
+    ComprarComicComponent,
+    ListaPersonasComponent,
+    ListaComicsComponent,
+    NuevaPersonaComponent,
  
   ],
   imports: [

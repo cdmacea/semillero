@@ -47,7 +47,7 @@ export class GestionarComicComponent implements OnInit {
         this.gestionarComicForm = this.fb.group({
             nombre : [null, Validators.required],
             editorial : [null],
-            tematica : [null],
+            tematica :[null],
             coleccion : [null],
             numeroPaginas : [null],
             precio : [null],
